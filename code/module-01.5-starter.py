@@ -11,27 +11,29 @@ Run:
 from __future__ import annotations
 
 
-def clean_title(title):
-    """Return a display-ready title: trimmed and Title-Cased."""
-    # TODO: strip the spaces and Title-Case the words, then return the result.
-    #       Hint: title.strip().title()
-    raise NotImplementedError("Implement clean_title in the lab")
+def clean_title(title: str) -> str:
+    """Return a display-ready title: trimmed and Title-Cased.
+
+    ".strip()" removes the stray spaces from both ends; ".title()" gives
+    each word a capital letter so the report looks tidy for humans.
+    """
+    return title.strip().title()
 
 
-def slugify(title):
-    """Return a URL-friendly slug like "fix-login-bug"."""
-    # TODO: clean the title, lowercase it, and replace spaces with dashes.
-    #       Hint: clean_title(title).lower().replace(" ", "-")
-    raise NotImplementedError("Implement slugify in the lab")
+def slugify(title: str) -> str:
+    """Return a URL-friendly slug like "fix-login-bug".
+
+    Clean the title first, lowercase it, then swap spaces for dashes.
+    """
+    cleaned = clean_title(title)
+    return cleaned.lower().replace(" ", "-")
 
 
 if __name__ == "__main__":
     app_name = "TaskFlow"
 
-    # 🧩 Debug/Fix: the line below is indented for no reason. Python uses
-    # indentation to know what code belongs together, so this stray indent
-    # crashes the script with an IndentationError. Run it, read the LAST line
-    # of the traceback, then delete the extra spaces to fix it.
-      print(f"Starting {app_name} Task Triage Engine...")
+    # 🧩 Debug/Fix: the line below had a stray indent which caused an
+    # IndentationError. The extra spaces were removed so the banner prints.
+    print(f"Starting {app_name} Task Triage Engine...")
     print("Loaded 3 sample tasks.")
     print("Ready to analyze.")
