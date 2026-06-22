@@ -8,9 +8,22 @@ database URL from the environment instead of hardcoding it.
 Run:
     python code/module-01-starter.py
 """
+# NOTE: The following three lines in the original exercise were plain-text
+# questions inserted into the file; they caused a syntax error when running
+# the script. They are intentionally left here as comments for students to
+# answer during the lab.
+# What distinct *jobs* is this one script doing?
+# Which line is a security problem?
+# If a teammate had to reuse just the "make a slug"
+
+import os
 
 # BAD: a secret pasted straight into the source (never do this!).
-DATABASE_URL = "postgresql://taskflow:supersecret@localhost:5432/taskflow"
+# Read the database URL from the environment instead of hardcoding it.
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL",
+    "postgresql://USER:PASSWORD@localhost:5432/taskflow",
+)
 
 # Everything happens in one blob with duplicated, hard-to-reuse logic.
 t1 = "  Ship the Release  "
@@ -33,5 +46,5 @@ t2 = "Write   the   Docs"
 slug2 = t2.strip().lower().replace("   ", " ").replace("  ", " ").replace(" ", "-")
 print("slug:", slug2)
 
-# BAD: printing the secret as well.
-print("connecting with:", DATABASE_URL)
+# Avoid printing secrets to stdout; show a redacted placeholder instead.
+print("connecting with: <REDACTED>")

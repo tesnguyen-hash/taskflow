@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Secrets
+.env DATABASE_URL=postgresql://taskflow:supersecret@localhost:5432/taskflow
+
+# macOS
+.DS_Store
