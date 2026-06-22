@@ -1,4 +1,4 @@
-#!/home/training/lfg3dayweek1-students/.venv/bin/python3
+#!/home/training/lfg3dayweek1-students/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

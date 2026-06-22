@@ -10,19 +10,6 @@ def normalize_priority(priority: str) -> str:
     return value if value in allowed else "medium"
 
 
-def clean_title(title: str) -> str:
-    """Strip surrounding whitespace and validate the title.
-
-    Raises:
-        ValueError: If the title is empty or only whitespace after stripping.
-    """
-    cleaned = title.strip()
-    if not cleaned:
-        raise ValueError("title must not be empty")
-    return cleaned
-
-
 if __name__ == "__main__":
     print(slugify_title("  Ship the Release  "))
     print(normalize_priority("URGENT"))
-    print(clean_title("  Deploy  "))
