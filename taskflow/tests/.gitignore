@@ -7,7 +7,7 @@ __pycache__/
 dist/
 build/
 
-# Secrets
+# Secrets — never commit the real .env
 .env
 
 # macOS

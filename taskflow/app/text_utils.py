@@ -1,5 +1,19 @@
+"""TaskFlow text utilities — Module 01 Lab reference solution.
+
+Single-responsibility helpers used across TaskFlow. Pure standard library.
+
+Run:
+    python app/text_utils.py
+"""
+
+from __future__ import annotations
+
+
 def slugify_title(title: str) -> str:
-    """Convert a task title into a URL-safe slug."""
+    """Convert a task title into a URL-safe slug.
+
+    Example: "  Ship the Release  " -> "ship-the-release"
+    """
     return "-".join(title.strip().lower().split())
 
 
@@ -10,6 +24,26 @@ def normalize_priority(priority: str) -> str:
     return value if value in allowed else "medium"
 
 
+def clean_title(title: str) -> str:
+    """Strip surrounding whitespace and reject an empty title.
+
+    Raises:
+        ValueError: if the title is empty after stripping.
+
+    Example: "  Deploy  " -> "Deploy"
+    """
+    cleaned = title.strip()
+    if not cleaned:
+        raise ValueError("Task title cannot be empty")
+    return cleaned
+
+
 if __name__ == "__main__":
-    print(slugify_title("  Ship the Release  "))
-    print(normalize_priority("URGENT"))
+    print(slugify_title("  Ship the Release  "))  # ship-the-release
+    print(normalize_priority("URGENT"))           # medium
+    print(clean_title("  Deploy  "))              # Deploy
+
+    try:
+        clean_title("   ")
+    except ValueError as e:
+        print(f"ValueError caught: {e}")          # ValueError caught: Task title cannot be empty

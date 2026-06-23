@@ -12,9 +12,9 @@ Run:
 # questions inserted into the file; they caused a syntax error when running
 # the script. They are intentionally left here as comments for students to
 # answer during the lab.
-# What distinct *jobs* is this one script doing?
-# Which line is a security problem?
-# If a teammate had to reuse just the "make a slug"
+# - What distinct *jobs* is this one script doing?
+# - Which line is a security problem?
+# - If a teammate had to reuse just the "make a slug"
 
 import os
 
